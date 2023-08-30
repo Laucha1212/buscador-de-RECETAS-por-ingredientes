@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="recetas,receta,ingredientes,">
     <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" name="" id="ingredientes">
-    <button onclick="buscar()">enviar</button>
 
-    <p id="texto"></p>
+    <div class="gral-container">
+        <h1>¡RECETERO AUTOMATICO!</h1>
+        <input type="text" name="" id="ingredientesIntroducidos" placeholder="Ingresa los ingredientes separados por comas">
+        <button id="buscarRecetas">Buscar Recetas</button>
+        <div id="resultadosRecetas"></div>
+    </div>
 
-    <script src="script.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,36 +1,55 @@
 const recetas = [
     {
-        nombre: "omelette",
-        ingredientes: ["huevo"]
+      nombre: "OMELETTE",
+      ingredientes: ["huevo"],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      imagen: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUVFRgWFhYYGBgaGBwaHBocGhgcGhgcGBkaGhgaGBocIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHhISHDQrISs0NDE0NDQ0NzQ2NzQ0MTQ0NjQ0MTQ0NDQ0NDc0MTE0MTQ0NDQ0MTQ0NDU0NDY0NDQ0NP/AABEIALcBEwMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAADBAACBQEGB//EADoQAAIBAgQEAwUHAwQDAQAAAAECAAMRBBIhMQVBUWEicYETkaGx0QYyQlJiwfAUcuEjgqLxM5LCY//EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAuEQACAgECBAUDAwUAAAAAAAAAAQIRAyExBBJBUQUiYXGBEzKxkaHhFCNCwdH/2gAMAwEAAhEDEQA/APpDaSIJW9zOmIYQmCd5V3sIAvAAzpeVRJQ1IQGAyxNpRqkq5lUQk2GsALK15TF4xKP3/E1tEH/0eUUx3Ewl0p2L7F+Q6hfrMTISbk3J/mpmMp9EVGPcYxnE6lXQnKv5F2/zEwkaWhpeEp0e0zpvcsTFKWFPpH1o6wgoR8o7Ev6WcXDTR9npLLSjoVmb/T9pP6aagpSeyhQWZBw8ocPNc0ZRqMVDsxHonpeDalNp6EC+HicQTMcoRqPeJs8P+0DpZanjTr+IevOLPQtAPR7axK47D0e57bC4hKi5ka4+XmIytY8xp23ngMNXekwZDY87bHsR0nq8BxQVUJA8YFymni/tvabRnZlKNGua386QLsWFj8Oc8vU+3mDUlWZ1dSQymm4ZSNwQRoYrX+3tE6U0dz3si+pJJ+E0sk9exCjkLe4TzmP4j7YlEPg5t+fsP0/Py3wavFK2JNn8KfkW9j/cd2+XaamEp2AiAfwwtHlbSK07CEY32gARTmPaG2iuHNh6wxuZQBvaCSJ5O8kANNZCZxmgmeAjrmLM2sIzQYWAy6sITNAmnreEC6SQLAXmfxHH2GSmdD95h+LsvaG4hici5F++w8R/KDyFucyUp+UzlLoi4rqwQS0MqQqU4dKQkJFWDSmbQqUzDpThVSVQhdKcMEhVSEVIUICtOQU4yFnMsYAQk77KGtIFisYuUiPFcWlBC77C2g3NzYATWyxLinDErpkdcy3Bt3GxHQyW1WgmnWgpw/F066B6bBl2O11Ybq1tjtDPThsFgEooERQq72HU7wjpGttRq+pnNRir0I1gMUKyswR0yuy+IWJyG2YdjaGenDcaZjPS5QYVlIZbgg6HvNg4cQT0ZDQ0zK43wdMeudQExSLryFVRsD+rofQ6Wt5LB4Z0OUrYg213FuRHWe7yFWDLow1EYxmDSuPbKAHH/kUc/wBYmsZXoyJRrVHnsCLbibtATPqYbxCa1GnYWmhAOpWsdoZKxI2llpDcwirACYYnnGQIpltC0a3aUAb2cktmEkACuYG8JUbkJQC0AKuZ1DF8Q5Bt1h0OkkC15Hq5FLnloo/M3+N5UXJAHMxXHVAzZR91dB5/iMUnSCKtiYBJJJuSSSeveEVLctYREhkSZJGpymkMqaS6JLG2xIudPOUSIYLilOpUamp8a9RbMBoSvWxmoqzLp8CQVjWGj2IuOV9yO/ePcPwXslK53e5vd2zHYCwPTSRHm/yJV9RjLOgTsq9QDUm0WTLDHFyk6RpGDk6RaUZwNzM6txRc2TMAxFwt9beUC9UnnPF4nxaW2NfLOvHwt/czQbFARGrxZQ2XMM35QdbbXt0gRTYxSlwNBVNawDnnz21tfb0nnf1WTJf1Jv4Oj6UY1SQfAYyvmc1GXLm8AA1AufvEjU2t8Y9/VN1ghSv4dNeZg8DwoUlyqxIzFtTf7xvp/PrIc5TTkm16IajGOlCi8RxBxOXLaiF38JzHy3BufKwmniy9RQEfIwYG+UMCBupB5GdNLqIti8UlFc7MFXrcb9O+x90uPFZ7XK2qpV3Ilix079zVVB0nMkR4ZxIVlDKCFO2YW2O48+s1Cw6+nOe1w/iCl5ciprc5Z4a1iLukXenNAreZOI4aTXSsHcZVKlL+BgeZHX6CelzWrRg7RV0nMNUNN8w8iOojbpF3SIorjsOEcMuqPqv7j0l6cLhlzoaROu6eY5D4wdETeLtGMlTCAXlgkuokZoxAQLm0YyACDpCWz62gB3LJL5pyUARUlmEMRFcTUtpAAbKCYQLpBoNYYmAFA2QM/PYeZ/nxiKJ6xvFG+Ve2b1Onyg1WYydsuOiIqQ6rOIkMoiQEAiWN4d7SpSfMQabE26gjUfATRAlssbSa1EzgE7JB4isFExz544YOUmaQg5ukUr1gvnMfHYlmBtvbTpCO5YyGjppv8J8rn4qWady26I9THijBep5ngWDNSqXfN7VQAwNyAGvlN9ibAjQ+ms9bToAWLG/YfueUwMBxHNXdBTYFT4nItf8Afy3uJtZehv25wzyfPcl0VIUaa0Yc1hewFhAYtXZGCEB/wm20dpKbXby7wGPx60qbORtba2tza1/5tIUW5J37KiHJJMzsBhq6qy13BLGy20Oxv9fSMtw4tTyMzAEAEhvFpY7+kVwnFnq1VUUmCFQxYkaXW4Avv0tNjINwR06nv5S5qXNdevQUZLlpbepKdJVRVuWsALnUmwtc94jxBKYVc4DLmFgQDYgE3+E0NtyNTptb1Ms9O4vo2oPLTyhTm76rsCdaC4QKpy7gXAFr+QvB0WLKGyspOtm0YdiOXOaJQFdjE8ZXWkt3JtoNAST6coSxaa6+wKfUDXxLIBlFye17eYBHlHcNVzqCdGtqIpVHtUur5cygq2W9r7XB38pMPRZVAZgzAasBlzd8vKb4OLyYNE7XZ7kyhGfv3HHpxZ6cYo1Lix3+c66T38OeOaKlHZnNKLi6YjqpDDcG8PiEs2ZdnGb1O/8AO8jrLKb0yOaH4H+fCdUGYzRVZVoM1CdoNFJOpmhmMBxygzvpKs3IS6UzaAE16yTmWSAGnVa0zWJLXvpeMVahJtB5bQAKhkJuQOptBXlqB8d+gJ9wg2BH8TE256eksEnKIuPd9YdVN+VvjeZmjIqwgEiiUxNRlQlVzNbQd/5r6Q2VkhgJ20qhuBfpLGFgirtYTIrVSSbxrG1rCw+cyq1cAKbMwZlUZQW+8dzbYc7z5bxDiHny8sdloepw+PljzM42IUMFvvtHaRvMzF4AtVV83hXdbcxqCDN2gVbZQAOs4vpxlST1Lc5a2tBUUkXMxIFhcnbrbX0mRwyoalR6qLa62W7MAxsBqP8Aaov7pvYu5GUDTblryMS4Zw/2IyhiRc2uSTcm5v75r5Yppb6K/wAmbTbTb0GcAXamrVVyP+Jb35kbjkd4WrRBFiN+Vj8zIfaFlAylB97wtmufym9hy5Q7acx3ub+6U4xatL8iTaFxRygG3O2m4B98pjOI06WT2l1zsFU2vqdrnYQlZwqn7t9yATYd27Tz+F4pXdhakrAso1y2Ci+Yix3253lQivjrqhSk3p1PU1EBHI6c/wDMDnC7C3lY3t2jAqLpYAdoOsLjYA9rbR5Eqbi9V2FF9GYXFuJPRK1A/h1BQiwawPXY/GbNCqHUMQRcA20IBI2nn+M0HaojBlAVgCGbwsDfNytcae/laadEWtsF5d9OciU3GEepUYW38GgaQtobdR9BAgW+ogajNvrcd7wb4s21/wC5jKSk9qNFB9xgVB2v1/m0ZSoGHeecxOK1yr94/DvHuGqV3nreF48ibk/tZjxHLVdTScStIeIr+dSPXlLkyh0IPQj6T3kcLM+pVC6GUw9fPtsPjJisP43B/MfibiMUkCiamZenT5mXdoNqkl4AdzSSkkAGkBnWSWKmdO0AANpOUjo5/Sbe8TlXXSSgLZvKEtgW40iwyiVQQiiZotnQJa06JJRJwCDqtYQpimLbScnGZfpYJSW9GuGPNNIzq9UX1YDuSB85akVI0sRy5zK4zw4VwASRY308iP3jPCsP7FFS5Nr2v3JP7z5Gocid63qj1PNdVoPm5IUAW+N+pMYZbAADT58vSZtPFozMuYhg2o2JHYevusdoVcajFgrkFTlJ2AbUaZtG1B07TSN62jNtPZjoYDQ8+5+cTxlVlsVs2v6b/QmMUT4VLNmNtTYWaw3sNB6RLiuEarlytksbi3f1HpK07i17DmGrM6gkEHc2uBbp0GnnBYqqlwCSGOuW4Jt11N7aSrYqkhCuyqxsQMwHXUDpoYHiNGkoaq1j4SSSb3VbnS52F9hzMfK5LVWLmino9ilbBtVDNTcgMpUDldTqSDz0taD4Hha1NWV2Vully5d7631veU+y/EzUR7AZUbKDsGB1tl7X+I6TcVBz0Hz8+0qScfJ+v+tSYtS84GrigikubBQLm+g5DbvGaLq6hhZgVBBvytpofpK4iijrkbUHlsO1rTiUgoCqAAoAFug+cF5FW43q+wpxPhFPEABhcBr7kbjqCDCf06qLA6AWAN9h0+sYepYXHOKV8QJnlnpXXf0+C4Rd2DNQr97a99Ph1iFevm8KjxfzWZeJ46jV1wyXZ2PiYAkLpe1+Z7jQc56PB4EKJ38H4e51PItO3cjLnUbS3FcFgMup35nrNWlStDJTtL2n0EIKKpHFKbZS0pWFhD5ZWqND5SyDNxrWqN3Cn/iINnleJt/qf7V+UEms0WxD3CJUvtDEwCrbYS4frAAuskteclAacq4my9JH3GvUbxKvgmGo1Hx90VCM10gqe58o3VHK2sVRLG5PqYnsNbjyLCgQdPaGAkIpnROyATtoxA2iGKaaDTLxBIJnj+MSccKS6s6uFVyABYrj8YlFczkhbgHmdegEaViNYGphVrAFlDagi/IjYz5vGo2ua/g9CV06MA8YomqzspDLUNNSFa9/1a7agg/q0novYIVsyqwbWzAHyO0lXAgWJXn00jRQrYkAgeXprOrI1pSaoySrrdiriomRaYUrfxX0yqNgoH82ncBTrBnzsGUsSthqqnkTztt8ecpjeKU6WXOcoZgq7m5N7DTXlvHab8rE/MRJ7Xt3/wCMTSv1E+KcNpVx4wrdDqCOpBGonla/AytekPGy62bNooXUKw/Fm1F+wvPcEX393/UoaY0Nr2NxtppbTvYy45pwbrbXuJwi99zP4bwpKLEroGsQptZGF7soHM3tfsJosNySfr9TL262HK5H7QTvbbX0vf0mOSTesiorsWptfUzmIq6G3xtBVXA5+nSZmKxZBsNegEUOeb5IrUqktWHq4qwu0TWk9Q8wvTmfOGwuDZzmfXtyE26FADlPd4Pw6MPNPV/g5sue9I7CGB4RTRs4QZrWzW1t0v00EaxHD3epTcVGRUuWQWs99sx3sOkeUWmfj+O0aJyEl3O1NBncnpYbes9dRVUcb1NLLOETKR67+Os64amNcgZS5H/6VDoo7Lr3mnhcSlRQ6HMp2NiAe4uNR3jEWyweI2MYtB1V0ldAMDidP/VJ7KP+IlMOJbG1QXb+63u0/aSi8pEsI4hKSQaISe0ZRLQAvlEkHeSAG0lY9Y1TrREU4VT0jTBjVREf7wH7++ZmLwLDVTcdOf8AmOZ5FYw3AVoHSMCLUhZ2Hf8AyPn8IyBIQ2dE7adAnSIwBVJl1gL+s1akysSDf1nieNL+0n6nXwn3MABCZbD0+MpeMIOZ29Z87iVujuk6Oe1NgNLDc8z75KbAjnYfHpaXzgaaW7n59p1GG5A02Itb3Tq1b1f7GXTY879oFVilqYchgRcHw6jUW5/Sa1NSBa9/U6+s0jSDbAAdTb4QbUiumlhsTb32tLnhbit6XX+BRmrZnY3EtTps+W9vfuO0T4Nxr2+a6Fbfv5zVbxXubjnrpFjTVb2t5jnMeaKi9PZlcrck7+A7VBM6rjQoJcqoB3vpYnTfntF6+MYMwIGWwykHxMxvmBW2w017mCTCtVPiHhvcD6zbh+Dnmltp3HKcYL1LNimc5U9/L06zQwXD7anU9TGcLggvKMvUVBcz6HhuDhhWi17nFkzSkEp0rRPifGKVAHMbt+VdW/x5mZeN4jXqsUpAjyG3meXprMavg0oH/VY1Kp19mmpB/Udk8zc9p17GI8/EK+J0zGhTPT/yMPmPh6weDxqUyaeDpZ32aox8I/vqc+uVdIlXzut6pWnTvogJAbsxHic9tbdpz2zFcqH2aDnYBrfpGyeZgBpO6I4OIdsVX3Sko8Cn9NPYf3NN3A4uqDnxDU6amwVAbkEnTM50ZuwFvOeQwmKK3TDIASfFUa5/9jux7fCbnCuF2cVHLVKnKo/4L/kXZB8Y0xUesUwWIewv0BPul6Km2sQ41WyoRzOn7mWSefBJJv8Ay8NQW0Aj3EYpXjENU35Q2aLBNYemhgBe0kLaSUBv1KV9osVsY1TM7Vp31HuioLF1MsSJQ3G0o1zvEADEsQ4b0P7fvGkHOBqU7gj+CTA1Lix3Gh84nuPoNWnbSTsYgTiZmIHiIN5rNEMcmxnneJ4ufA63Wpvw8qkjOI1HnE1x5auaSodPPTT72uhB2Hv5R5VJZR3EfbC2OYAXnzHD4203R35JU1qJ08ObFXPkRa9ucNTpqoyqfLnf0inFWrqoNFVLZrkNfaxuAddYemTlUsMrWBPQG2om/Ko9P1JttlqVVuY9eXpO4jGW0PTpA1KoAsdeh3+EyWx5bNmUqFa120va3iU9Jmpzrliy1BN20P1Kw5WiGJxP4U1b5ecVNVnNkuBzPXyjT0jSpu6oXZVJCjdj0vO7hPDnJ8+TbsZ5c6iqidwfD9btqes2qVACZv2d4uuIRiEdGUgMrC2p6dZtCe/CEVHy7HC582opjsQEA6sbD3En4A/CZ73bVvQdJfiTAuCdlB95IufS1vU9JakB75qkQ2JVC9si1PZqfvHQadyNT5XiBVEOTDp7RzvUYeEdTY/vYdjNvEYcEWNrTLr1Gc+yw6ZRsxHP+5vpBjRlYzIjZnf2tXoNbdAOnkITBcJrYghnGReSj956ThP2ZRPEwzP1+k9ClEDaJRsHIxcBwREA0Gk2KdADlDBJ2Wo0S2CewE8xxmvnfKNlFvXnN7ieKCISfQdSdp5BHJNzudY+odAyU9o3TgE1l0OvlAQ5ThVgKZh0WAB7yTl5JQG0pjCPF2EimADDoDAFO0OjSzJeKhCbLEmOR78jv58vpNJ0iuIpXBETVjTDo1wCJa0z8FXscjbjbuJpCCBnLQGIS4IjE4wikk1TGnTMME5lvya00So6ajbU/wAMUxtOzA8iR8J18Rbna3x9J8tKK4ecoS2u17Hf96TRR6jC5Ki3OLVsQMuhFovxTifhIvvpYbmY+HouVVVBVQLbksfMnWRHh5535Lru/wBzS4wXm3Ga+MF8ouT0ErR4eXN39ByEewfDgs1KdK09jheAhh13fc5sueUtOgvh8GFG0bWkJcCZvE+N06VxfM/5Ry8+n83noJUc7dj7lUFzYfvMnF8bUeFNSTYW1+X3j2GnnManUxGLY5dE2LG+QW5X/Gew+E3cBwtKW12fm539PyjsPjGIRrU3YZj4TvY6n15DyitN66nRQ3vE9MtC8OmFHSGoaGFRwteto5yL0Xc+Zm/gcClNQFAEYp07QyrKSE2VCy4WWAktKEVIlKjWEI0879oeKZBkU+I/8R184MEY3G+I+1q5ADlQ78iSDc+n1lKafzoIKil+UdVYIGcp/D/qGVNYMk6DlDUSYAHRbCEV4PNO5tZQF7HrJOZ5IAenZIM6RgrKMkABq8MlSAZJXaADjreLutpanVl61PMO8BGRjMPfUGxGxh8Biswytow/lxLNhzzPwi2KwhHiW+YbGR6lGoJGERwWOzeFhlboY/GtRbCmKp3BnmsU1QsVVfU/SeuZIs+HF72nJn4PHmkpSVtGsM0oqkeaocNJOZtTNOlhQOU0fZATKx/G6NPnnbotj7zsJrHGoKkJzch1acRx3FqVLQnM35V1PqdhPNcT+0TucoIQflU6nzb/AKiOA4fVxLEIMqg+Jj91fd95uw9bbyhe45jePVaxyICLmwVNWPqNT6R3hX2Y/HiDfmKY2/3sN/IadzNzhXCKeHXwC7H7zn7zfQdh8d5oCnHQmwCUwAAoAAFgAAAB0A5S6U4wqS6046FYNEhVSEVJYLKSFZxVlgJYCdgBWcM6xmHxvja0hlHic7D9z0EG6BFuN8XWkthqx2H7ntPHoGdizG5O5lGqM7FnNyf5YdBNDD04IDtKnaFUay50nALwA6xllaUFOcpjxQAbRYN1531+UrXxKruYs+KzaKLmADPthJEf6VjufdJHqB9ElbSSRiKGUZZ2SAwTLC0nkkgAWpTDDvE3BGkkkTBCWLwobUaHkZTC8SZWyP6MOfpJJJe40bCuCJgcQ+0lNbrTUuw0ubqoPzM7JBgjzeO4jUqAl28P5RcL7hv6zDr4stogyjrznZJDLRp8B4Ca9nc2p3tofE1jYgflF+e/TrPc4eiqgIgAA0AAsBJJKRLDqkIEkklEhFSWCySQAtadtJJKESUqVQonJIgRgcX4hWYEUACepNrDsDoT5kes8ZVV8xV75ydbkHXzE5JJQ2aFCmOXl5zQQWkkjAoW1/nvhqQkkgB13AijVrG4kkgBSjgyxzNqTy5DymhRoASSRgGtJJJGB//Z"
     },
     {
-        nombre: "carne al horno con papas",
-        ingredientes: ["carne", "papa"]
+      nombre: "HUEVO REVUELTO",
+      ingredientes: ["huevo"],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsccTpbaKnTHUHqkVP7gUAexTNN4HS3UcyFg&usqp=CAU"
     },
     // ... más recetas
-];
-
-//solicitar ingredientes
-const ingredientesUsuario = prompt("Ingresa los ingredientes separados por comas").split(",").map(ingrediente => ingrediente.trim());
-
-//Comparar ingredientes y mostrar las recetas coincidentes:
-const recetasCompatibles = [];
-
-recetas.forEach(receta => {
-  const ingredientesReceta = receta.ingredientes;
-  const ingredientesFaltantes = ingredientesReceta.filter(ingrediente => !ingredientesUsuario.includes(ingrediente));
-
-  if (ingredientesFaltantes.length === 0) {
-    recetasCompatibles.push(receta.nombre);
-  }
-});
-
-if (recetasCompatibles.length > 0) {
-  console.log("Recetas que puedes hacer:", recetasCompatibles);
-} else {
-  console.log("No tienes suficientes ingredientes para ninguna receta.");
-}
-
-//mostrar en pantalla
-texto = document.getElementById("texto")
-texto.textContent = "Recetas que puedes hacer:  " + recetasCompatibles;
+  ];
+  
+  const buscarRecetasBtn = document.getElementById("buscarRecetas");
+  const resultadosRecetasDiv = document.getElementById("resultadosRecetas");
+  
+  buscarRecetasBtn.addEventListener("click", () => {
+    const ingredientesInput = document.getElementById("ingredientesIntroducidos").value;
+    const ingredientesUsuario = ingredientesInput.split(",").map(ingrediente => ingrediente.trim());
+  
+    const recetasCompatibles = [];
+  
+    recetas.forEach(receta => {
+      const ingredientesReceta = receta.ingredientes;
+      const ingredientesOpcionalesReceta = receta.ingredientesOpcionales || []; // Si no se define, será un array vacío
+      const ingredientesFaltantes = ingredientesReceta.filter(ingrediente => !ingredientesUsuario.includes(ingrediente));
+      const ingredientesOpcionalesFaltantes = ingredientesOpcionalesReceta.filter(ingrediente => !ingredientesUsuario.includes(ingrediente));
+  
+      if (ingredientesFaltantes.length === 0 || (ingredientesOpcionalesFaltantes.length === 0 && ingredientesFaltantes.length === ingredientesReceta.length)) {
+        recetasCompatibles.push(receta);
+      }
+    });
+  
+    if (recetasCompatibles.length > 0) {
+      let resultadosHTML = `<h2 class="tituloRecetasPosibles">Recetas que puedes hacer:</h2>`;
+      recetasCompatibles.forEach(receta => {
+        resultadosHTML += `<div class="contenedorReceta">`
+        resultadosHTML += `<h3 class="nombreReceta">${receta.nombre}</h3>`;
+        resultadosHTML += `<img src="${receta.imagen}" alt="${receta.nombre}">`;
+        resultadosHTML += `<p>Ingredientes: <br> ${receta.ingredientes}</p>`;
+        resultadosHTML += `<p>Ingredientes opcionales: <br>${receta.ingredientesOpcionales}</p>`;
+        resultadosHTML += `<p>${receta.pasoAPaso.replace(/\n/g, "<br>")}</p>`;
+        resultadosHTML += `</div>`
+    });
+      resultadosRecetasDiv.innerHTML = resultadosHTML;
+    } else {
+      resultadosRecetasDiv.innerHTML = "No tienes suficientes ingredientes para ninguna receta.";
+    }
+  });
+  
