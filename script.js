@@ -1,30 +1,91 @@
+//RECETAS EXISTENTES:
 const recetas = [
     {
       nombre: "OMELETTE",
-      ingredientes: ["h"],
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "omelette"
+    },
+    {
+      nombre: "HUEVO REVUELTO",
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "huevorevuelto"
+    },
+    {
+      nombre: "OMELETTE",
+      ingredientes: [""],
       ingredientesOpcionales: ["queso", "tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "omelette"
     },
     {
       nombre: "HUEVO REVUELTO",
-      ingredientes: ["h"],
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "huevorevuelto"
+    },
+    {
+      nombre: "OMELETTE",
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "omelette"
+    },
+    {
+      nombre: "HUEVO REVUELTO",
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "huevorevuelto"
+    },
+    {
+      nombre: "OMELETTE",
+      ingredientes: [""],
+      ingredientesOpcionales: ["queso", "tomate"],
+      pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
+      id: "omelette"
+    },
+    {
+      nombre: "HUEVO REVUELTO",
+      ingredientes: [""],
       ingredientesOpcionales: ["queso", "tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "huevorevuelto"
     },
     // ... más recetas
-  ];
-  
-  const buscarRecetasBtn = document.getElementById("buscarRecetas");
-  const resultadosRecetasDiv = document.getElementById("resultadosRecetas");
-  
+];
+
+const buscarRecetasBtn = document.getElementById("buscarRecetas");
+const resultadosRecetasDiv = document.getElementById("resultadosRecetas");
+
+//FUNCION DE EXPANSION DE RECETA SELECCIONADA
+function expansionResultado(element) {
+  const resultados = document.querySelectorAll('.sectionResultados');
+  resultados.forEach(result => {
+    if (result !== element) {
+      result.classList.remove('expanded');
+    }
+  });
+
+  if (!element.classList.contains('expanded')) {
+    element.classList.add('expanded');
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+
+
+
+//FUNCION DE ENCONTRAR RECETAS Y CREAR RESULTADOS
   buscarRecetasBtn.addEventListener("click", () => {
     const ingredientesInput = document.getElementById("ingredientesIntroducidos").value;
     const ingredientesUsuario = ingredientesInput.split(",").map(ingrediente => ingrediente.trim());
   
     const recetasCompatibles = [];
-  
     recetas.forEach(receta => {
       const ingredientesReceta = receta.ingredientes;
       const ingredientesOpcionalesReceta = receta.ingredientesOpcionales || []; // Si no se define, será un array vacío
@@ -37,26 +98,42 @@ const recetas = [
     });
   
     if (recetasCompatibles.length > 0) {
+      let resultadosHTML = `<div class="resultados-container">`; //Apertura del contenedor de resultados
+      resultadosHTML += `<h2 class="tituloRecetasPosibles">${recetasCompatibles.length} Recetas que puedes hacer</h2>`;
 
-      let resultadosHTML = ``;
-      resultadosHTML += `<div class="prueba"><h2 class="tituloRecetasPosibles">Recetas que puedes hacer:</h2></div>`;
-      
       recetasCompatibles.forEach(receta => {
-        resultadosHTML += `<div class="sectionResultados">`
-        // resultadosHTML += `<h2 class="tituloRecetasPosibles">Recetas que puedes hacer:</h2>`;
-        resultadosHTML += `<div class="contenedorReceta">`
-        resultadosHTML += `<h3 class="nombreReceta">${receta.nombre}</h3>`;
-        //resultadosHTML += `<img src="${receta.imagen}" alt="${receta.nombre}">`;
-        resultadosHTML += `<div class="recetaImagen" id="${receta.id}BACKGROUND"></div>">`;
-        resultadosHTML += `<p>Ingredientes: <br> ${receta.ingredientes}</p>`;
-        resultadosHTML += `<p>Ingredientes opcionales: <br>${receta.ingredientesOpcionales}</p>`;
-        resultadosHTML += `<p>${receta.pasoAPaso.replace(/\n/g, "<br>")}</p>`;
-        resultadosHTML += `</div>`
-        resultadosHTML += `</div>`
+      resultadosHTML += `<div class="sectionResultados" onclick="expansionResultado(this)">`;
+        resultadosHTML += `<h3 class="nombreReceta">${receta.nombre}</h3>`
+
+        resultadosHTML += `<div class="contenedorReceta">`;
+                         
+        resultadosHTML +=   `<div class="recetaImagen" id="${receta.id}BACKGROUND"></div>`;
+                         
+        resultadosHTML +=   `<div class="contenedorTextoResultados">`;
+          resultadosHTML +=     `<span class="spanIngredientes">INGREDIENTES:</span>
+                                    <p class="resultadosText resultadosTextIngredientes">
+                                    ${receta.ingredientes}
+                                </p>`;
+                          
+          resultadosHTML +=     `<span class="spanIngredientesOpcionales">INGREDIENTES OPCIONALES:</span>
+                                    <p class="resultadosText resultadosTextIngredientesOpcionales">
+                                    ${receta.ingredientesOpcionales}
+                                </p>`;
+                          
+          resultadosHTML +=     `<span class="spanPreparacion">PREPARACIÓN:</span>
+                                    <p class="resultadosText resultadosTextPasoAPaso">
+                                    ${receta.pasoAPaso.replace(/\n/g, "<br>")}
+                                </p>`;
+        resultadosHTML +=   `</div>`;
+                         
+        resultadosHTML += `</div>`;
+
+      resultadosHTML += `</div>`; //Cierre del contenedor de resultados
     });
       resultadosRecetasDiv.innerHTML = resultadosHTML;
-    } else {
+      //resultadosHTML += `<div class="recetaDesplegada">${receta.nombre}${receta.ingredientes}${receta.ingredientesOpcionales}${receta.pasoAPaso}</div>`
+    }
+    else {
       resultadosRecetasDiv.innerHTML = "No tienes suficientes ingredientes para ninguna receta.";
     }
   });
-  

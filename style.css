@@ -6,7 +6,7 @@
 
 :root{
     --colorPrincipal:#fff;
-    --colorSecundario:#c01f9f;
+    --colorSecundario:#070745;
     --lucky:#CED89D;
 }
 .effectopacity{
@@ -16,7 +16,7 @@
 }
 /***************/
 body{
-    background-image: url(https://img.freepik.com/foto-gratis/ingredientes-pasta-plana-mesa-espacio-copia_23-2148361338.jpg?w=360&t=st=1693365623~exp=1693366223~hmac=f3e4dcc921be1ebd475ff2f7a7703f075b3d097409a5b33d4d5d925b71468702);
+    background-image: url(https://img.freepik.com/foto-gratis/decoracion-comida-italiana-pizza-pan_23-2147686560.jpg?w=900&t=st=1693372775~exp=1693373375~hmac=3a1bd85c2fed049b85c48eb0143d588ece0483304dce6786d0bc9424985836ce);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,6 +26,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: end;
+    overflow-x: hidden;
 }
 .gral-container{
     width: 100%;
@@ -61,37 +62,49 @@ input{
     width: 50%;
 }
 /*******GRID*********/
-.prueba{
-    width: 100vw;
-    display: block;
-    background-color: var(--lucky);
+.tituloRecetasPosibles{
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: -1;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
 }
 .sectionResultados{
-    background-color: var(--lucky);
-    width: 200%;
-    display: block;
-    margin: 0 auto;
+    width: 100%;
+    margin: auto;
+    background-color: var(--colorPrincipal);
+    border: solid 2px #000;
+    border-radius: 12px;
+    width: 95%;
+    max-height: 400px; /* Tamaño máximo para la vista previa */
+    overflow: hidden; /* Oculta el contenido que exceda el tamaño máximo */
 
+}
+.sectionResultados .nombreReceta{
+    color: rgb(3, 3, 80);
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 10px 0;
 }
 #resultadosRecetas{
     margin: 0 auto;
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin-top: 20px;
+    
 }
-.tituloRecetasPosibles{
 
-    text-align: center;
+/*contenedor section resultador*/
+.resultados-container{
+    background-color: #0a203b;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: ; */
+    grid-gap: 20px;
+    padding: 20px;
 }
 /***********/
 .contenedorReceta{
-    background-color: var(--colorPrincipal);
-    border: solid 2px var(--colorSecundario);
-    border-radius: 12px;
-    width: 300px
 }
 /********ajuste imagen de cada receta encontrada***********************/
 .recetaImagen{
@@ -110,12 +123,60 @@ input{
     background-image: url(./imageRecetas/huevorevueltoIMAGE.jpg);
 }
 /********************/
-.nombreReceta{
-    color: blue;
-    text-align: center;
-    font-size: 20px;
-    padding: 10px 0;
-}
+
 .contenedorReceta p{
     margin: 10px 10px;
 }
+/* .resultadosText{
+    color:#000;
+} */
+.spanIngredientes{
+    color:dodgerblue;
+}
+.spanIngredientesOpcionales{
+    color:darkorange;
+}
+.spanPreparacion{
+    color:rgb(67, 252, 0);
+}
+.contenedorTextoResultados{
+    padding: 10px;
+}
+/************footer**********/
+/* footer{
+    bottom: 0;
+} */
+
+.expanded{
+    height: max-content;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    max-height: none;
+    overflow: visible;
+}
+.expanded h3{
+    font-size: 30px;
+}
+.expanded .contenedorReceta{
+    border-top: 2px solid #000;
+}
+.expanded .contenedorReceta .recetaImagen{
+    width: 50%;
+    margin: 10px 5px 0 0;
+    float: right;
+    border: 2px solid #000;
+}
+.expanded .contenedorReceta .contenedorTextoResultados{
+    font-size: 20px;
+    max-width: 50%;
+}
+.expanded .contenedorReceta .contenedorTextoResultados span{
+    width: 100%;
+    display: block;
+    background-color: #000;
+    padding: 4px;
+    text-align: center;
+}
+/* .expanded .contenedorReceta .contenedorTextoResultados span p{} */
