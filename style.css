@@ -87,6 +87,13 @@ input{
     letter-spacing: 1px;
     padding: 10px 0;
 }
+.sectionResultados .contenedorReceta .contenedorTextoResultados span{
+    font-weight: bold;
+    -webkit-text-stroke: 0.1px  #000;
+}
+.sectionResultados .contenedorReceta .contenedorTextoResultados p{
+    font-size: 17px;
+}
 #resultadosRecetas{
     margin: 0 auto;
     width: 100%;
@@ -104,8 +111,9 @@ input{
     padding: 20px;
 }
 /***********/
-.contenedorReceta{
-}
+/* .contenedorReceta{
+} */
+
 /********ajuste imagen de cada receta encontrada***********************/
 .recetaImagen{
     height: 200px;
@@ -142,11 +150,7 @@ input{
 .contenedorTextoResultados{
     padding: 10px;
 }
-/************footer**********/
-/* footer{
-    bottom: 0;
-} */
-
+/************RECETA EXPANDIDA**********/
 .expanded{
     height: max-content;
     grid-column-start: 1;
@@ -156,7 +160,7 @@ input{
     max-height: none;
     overflow: visible;
 }
-.expanded h3{
+.expanded .nombreReceta{
     font-size: 30px;
 }
 .expanded .contenedorReceta{
@@ -179,4 +183,4 @@ input{
     padding: 4px;
     text-align: center;
 }
-/* .expanded .contenedorReceta .contenedorTextoResultados span p{} */
+/* .expanded .contenedorReceta .contenedorTextoResultados p{} */

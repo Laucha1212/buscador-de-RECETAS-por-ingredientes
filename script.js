@@ -3,28 +3,28 @@ const recetas = [
     {
       nombre: "OMELETTE",
       ingredientes: [""],
-      ingredientesOpcionales: ["queso", "tomate"],
+      ingredientesOpcionales: ["Queso", "Tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "omelette"
     },
     {
       nombre: "HUEVO REVUELTO",
       ingredientes: [""],
-      ingredientesOpcionales: ["queso", "tomate"],
+      ingredientesOpcionales: ["Queso", "Tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "huevorevuelto"
     },
     {
       nombre: "OMELETTE",
       ingredientes: [""],
-      ingredientesOpcionales: ["queso", "tomate"],
+      ingredientesOpcionales: ["Queso", "Tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "omelette"
     },
     {
       nombre: "HUEVO REVUELTO",
       ingredientes: [""],
-      ingredientesOpcionales: ["queso", "tomate"],
+      ingredientesOpcionales: ["queso", "Tomate"],
       pasoAPaso: "Paso 1: Preparación...\nPaso 2: Cocinar...\nPaso 3: Servir...",
       id: "huevorevuelto"
     },
@@ -112,12 +112,12 @@ function expansionResultado(element) {
         resultadosHTML +=   `<div class="contenedorTextoResultados">`;
           resultadosHTML +=     `<span class="spanIngredientes">INGREDIENTES:</span>
                                     <p class="resultadosText resultadosTextIngredientes">
-                                    ${receta.ingredientes}
+                                    ${receta.ingredientes.join(', ')}
                                 </p>`;
                           
           resultadosHTML +=     `<span class="spanIngredientesOpcionales">INGREDIENTES OPCIONALES:</span>
                                     <p class="resultadosText resultadosTextIngredientesOpcionales">
-                                    ${receta.ingredientesOpcionales}
+                                    ${receta.ingredientesOpcionales.join(', ')}
                                 </p>`;
                           
           resultadosHTML +=     `<span class="spanPreparacion">PREPARACIÓN:</span>
@@ -127,7 +127,6 @@ function expansionResultado(element) {
         resultadosHTML +=   `</div>`;
                          
         resultadosHTML += `</div>`;
-
       resultadosHTML += `</div>`; //Cierre del contenedor de resultados
     });
       resultadosRecetasDiv.innerHTML = resultadosHTML;
